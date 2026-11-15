@@ -1,21 +1,21 @@
 1
-00:00:00,930 --> 00:00:03,590
+00:00:00,930 --> 00:00:04,030
 3 500 avions dans le ciel...
 
 2
-00:00:03,590 --> 00:00:04,030
-et soudain,
+00:00:04,630 --> 00:00:06,730
+et soudain, toute l'Amérique dit :
 
 3
-00:00:04,630 --> 00:00:06,900
-toute l'Amérique dit : personne ne décolle.
+00:00:07,090 --> 00:00:08,040
+personne ne décolle.
 
 4
-00:00:06,900 --> 00:00:08,040
+00:00:08,510 --> 00:00:09,350
 Que s'est-il passé ?
 
 5
-00:00:08,510 --> 00:00:09,350
+00:00:09,980 --> 00:00:11,050
 Ici Trend.
 
 6
@@ -23,15 +23,15 @@ Ici Trend.
 De quoi tout le monde parle ?
 
 7
-00:00:14,070 --> 00:00:16,560
+00:00:13,580 --> 00:00:16,220
 Le vendredi 13 novembre,
 
 8
-00:00:16,560 --> 00:00:18,640
+00:00:16,460 --> 00:00:18,490
 peu avant 16 h, heure de Washington,
 
 9
-00:00:19,020 --> 00:00:21,890
+00:00:19,140 --> 00:00:21,890
 l'Administration fédérale de l'aviation a émis un ordre rare :
 
 10
@@ -39,108 +39,108 @@ l'Administration fédérale de l'aviation a émis un ordre rare :
 un arrêt total au sol.
 
 11
-00:00:24,420 --> 00:00:27,510
+00:00:24,420 --> 00:00:28,110
 Aucun avion ne décolle d'aucun aéroport des États-Unis.
 
 12
-00:00:27,900 --> 00:00:31,610
-La raison ? « Des coupures de communication intermittentes. »
+00:00:28,280 --> 00:00:28,680
+La raison ?
 
 13
-00:00:32,070 --> 00:00:35,010
-Le plus long arrêt national depuis vingt-cinq ans...
+00:00:29,180 --> 00:00:32,640
+« Des coupures de communication intermittentes. »
 
 14
-00:00:35,010 --> 00:00:37,110
-depuis le 11 septembre.
+00:00:32,720 --> 00:00:35,410
+Le plus long arrêt national depuis vingt-cinq ans...
 
 15
-00:00:37,690 --> 00:00:38,310
-Le résultat ?
+00:00:35,650 --> 00:00:37,110
+depuis le 11 septembre.
 
 16
-00:00:38,800 --> 00:00:41,260
-Plus de 9 000 vols annulés,
+00:00:37,790 --> 00:00:38,240
+Le résultat ?
 
 17
-00:00:41,260 --> 00:00:43,320
-et plus de 7 000 retardés.
+00:00:38,800 --> 00:00:41,140
+Plus de 9 000 vols annulés,
 
 18
-00:00:43,830 --> 00:00:46,040
-Des millions de voyageurs ont dormi dans les aéroports,
+00:00:41,390 --> 00:00:43,320
+et plus de 7 000 retardés.
 
 19
-00:00:46,040 --> 00:00:47,800
-juste avant le week-end.
+00:00:43,900 --> 00:00:46,050
+Des millions de voyageurs ont dormi dans les aéroports,
 
 20
-00:00:48,370 --> 00:00:49,800
-Pourquoi l'affaire a-t-elle explosé ?
+00:00:46,290 --> 00:00:47,800
+juste avant le week-end.
 
 21
-00:00:50,350 --> 00:00:53,120
-Parce que personne ne connaissait la cause.
+00:00:48,370 --> 00:00:50,760
+Pourquoi l'affaire a-t-elle explosé ?
 
 22
-00:00:53,120 --> 00:00:54,500
-Et en quelques heures,
+00:00:50,820 --> 00:00:52,390
+Parce que personne ne connaissait la cause.
 
 23
-00:00:54,500 --> 00:00:55,890
-les réseaux se sont remplis de théories :
+00:00:52,910 --> 00:00:55,890
+Et en quelques heures, les réseaux se sont remplis de théories :
 
 24
-00:00:56,310 --> 00:01:00,220
+00:00:56,310 --> 00:01:00,070
 Une cyberattaque ? Un bug du nouvel outil d'IA ?
 
 25
-00:01:00,220 --> 00:01:03,300
-Une guerre silencieuse ? La Sécurité intérieure affirme :
+00:01:00,240 --> 00:01:01,740
+Une guerre silencieuse ?
 
 26
-00:01:03,300 --> 00:01:05,560
-aucun signe d'attaque.
+00:01:02,010 --> 00:01:03,580
+La Sécurité intérieure affirme :
 
 27
-00:01:08,400 --> 00:01:10,540
-Et aucune preuve liée à l'IA.
+00:01:03,860 --> 00:01:05,560
+aucun signe d'attaque.
 
 28
-00:01:10,540 --> 00:01:15,250
-17 des 22 centres de contrôle aérien ont été touchés,
+00:01:05,940 --> 00:01:07,970
+Et aucune preuve liée à l'IA.
 
 29
-00:01:15,980 --> 00:01:18,710
-mais aucun n'a été totalement coupé.
+00:01:08,400 --> 00:01:13,020
+17 des 22 centres de contrôle aérien ont été touchés,
 
 30
-00:01:18,710 --> 00:01:20,640
-Alors, la vérité ? Samedi matin,
+00:01:13,280 --> 00:01:15,180
+mais aucun n'a été totalement coupé.
 
 31
-00:01:20,640 --> 00:01:22,000
-le secrétaire aux Transports a donné l'explication...
+00:01:15,980 --> 00:01:16,610
+Alors, la vérité ?
 
 32
-00:01:22,600 --> 00:01:24,740
-plus simple que tout ce qu'on imaginait.
+00:01:17,300 --> 00:01:19,580
+Samedi matin, le secrétaire aux Transports a donné l'explication...
 
 33
-00:01:25,120 --> 00:01:28,140
-Un technicien sous-traitant faisait une maintenance de routine sur un site isolé :
+00:01:19,970 --> 00:01:22,000
+plus simple que tout ce qu'on imaginait.
 
 34
+00:01:22,600 --> 00:01:28,140
+Un technicien sous-traitant faisait une maintenance de routine sur un site isolé :
+
+35
 00:01:28,660 --> 00:01:30,980
 il remplaçait des fils de cuivre vieux de plusieurs décennies
 
-35
-00:01:31,670 --> 00:01:32,880
-par de la fibre optique,
-
 36
-00:01:33,210 --> 00:01:35,290
-et installait un nouveau routeur.
+00:01:31,800 --> 00:01:35,210
+par de la fibre optique, et installait un nouveau routeur.
 
 37
 00:01:36,060 --> 00:01:37,350
@@ -159,70 +159,66 @@ Mille tentatives de connexion toutes les quatre secondes.
 Le système reliant les tours de contrôle du pays a suffoqué.
 
 41
-00:01:48,920 --> 00:01:52,570
+00:01:48,920 --> 00:01:52,330
 Le secrétaire a déclaré : « Quand je dis qu'on utilise du matériel ancien...
 
 42
-00:01:52,570 --> 00:01:55,310
+00:01:52,790 --> 00:01:56,320
 on utilise vraiment du matériel ancien. » On lui a demandé :
 
 43
-00:01:56,760 --> 00:02:00,440
+00:01:56,760 --> 00:01:59,190
 pourquoi faire ces travaux à 15 h,
 
 44
-00:02:01,780 --> 00:02:03,180
+00:01:59,280 --> 00:02:00,430
 et pas en pleine nuit ?
 
 45
-00:02:03,790 --> 00:02:04,710
-Il a répondu :
+00:02:00,980 --> 00:02:03,180
+Il a répondu : nous allons revoir les horaires.
 
 46
-00:02:05,120 --> 00:02:06,640
-nous allons revoir les horaires.
-
-47
-00:02:06,640 --> 00:02:07,410
+00:02:03,790 --> 00:02:04,710
 L'enquête se poursuit :
 
-48
-00:02:08,130 --> 00:02:09,580
+47
+00:02:05,120 --> 00:02:07,410
 erreur humaine... ou appareil défectueux ?
 
-49
-00:02:10,080 --> 00:02:11,880
+48
+00:02:08,220 --> 00:02:09,580
 Le pays le plus puissant du monde,
 
-50
-00:02:11,880 --> 00:02:13,230
+49
+00:02:10,080 --> 00:02:11,650
 tout son ciel à l'arrêt...
 
-51
-00:02:13,600 --> 00:02:14,550
+50
+00:02:11,880 --> 00:02:14,550
 à cause d'un fil de cuivre et d'un routeur.
 
-52
+51
 00:02:15,120 --> 00:02:16,460
 Alors, le problème vient-il de l'appareil...
 
-53
-00:02:16,880 --> 00:02:19,190
+52
+00:02:16,880 --> 00:02:20,380
 ou de ceux qui attendent la catastrophe pour moderniser ?
 
-54
+53
 00:02:21,110 --> 00:02:22,470
 Dites-moi ce que vous en pensez en commentaire.
 
-55
+54
 00:02:22,820 --> 00:02:25,020
 Toutes les sources dans la description.
 
-56
-00:02:25,480 --> 00:02:26,870
-Abonnez-vous à la chaîne,
+55
+00:02:25,480 --> 00:02:27,830
+Abonnez-vous à la chaîne, et activez la cloche...
 
-57
-00:02:26,870 --> 00:02:30,120
-et activez la cloche... pour ne pas rater le prochain trend.
+56
+00:02:27,940 --> 00:02:29,850
+pour ne pas rater le prochain trend.
 

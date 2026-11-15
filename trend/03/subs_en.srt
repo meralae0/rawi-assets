@@ -1,21 +1,21 @@
 1
-00:00:00,930 --> 00:00:03,590
+00:00:00,930 --> 00:00:04,030
 3,500 planes in the air...
 
 2
-00:00:03,590 --> 00:00:04,030
-and suddenly,
+00:00:04,630 --> 00:00:06,730
+and suddenly, all of America says:
 
 3
-00:00:04,630 --> 00:00:06,900
-all of America says: nobody takes off.
+00:00:07,090 --> 00:00:08,040
+nobody takes off.
 
 4
-00:00:06,900 --> 00:00:08,040
+00:00:08,510 --> 00:00:09,350
 What happened?
 
 5
-00:00:08,510 --> 00:00:09,350
+00:00:09,980 --> 00:00:11,050
 This is Trend.
 
 6
@@ -23,15 +23,15 @@ This is Trend.
 What is everyone talking about?
 
 7
-00:00:14,070 --> 00:00:16,560
+00:00:13,580 --> 00:00:16,220
 On Friday, November 13th,
 
 8
-00:00:16,560 --> 00:00:18,640
+00:00:16,460 --> 00:00:18,490
 just before 4 p.m. Washington time,
 
 9
-00:00:19,020 --> 00:00:21,890
+00:00:19,140 --> 00:00:21,890
 the Federal Aviation Administration issued a rare order:
 
 10
@@ -39,108 +39,108 @@ the Federal Aviation Administration issued a rare order:
 a nationwide ground stop.
 
 11
-00:00:24,420 --> 00:00:27,510
+00:00:24,420 --> 00:00:28,110
 No plane takes off from any airport in the United States.
 
 12
-00:00:27,900 --> 00:00:31,610
-The reason? "Intermittent communication outages."
+00:00:28,280 --> 00:00:28,680
+The reason?
 
 13
-00:00:32,070 --> 00:00:35,010
-The longest nationwide stop in twenty-five years...
+00:00:29,180 --> 00:00:32,640
+"Intermittent communication outages."
 
 14
-00:00:35,010 --> 00:00:37,110
-since September 11th.
+00:00:32,720 --> 00:00:35,410
+The longest nationwide stop in twenty-five years...
 
 15
-00:00:37,690 --> 00:00:38,310
-The result?
+00:00:35,650 --> 00:00:37,110
+since September 11th.
 
 16
-00:00:38,800 --> 00:00:41,260
-More than 9,000 flights cancelled,
+00:00:37,790 --> 00:00:38,240
+The result?
 
 17
-00:00:41,260 --> 00:00:43,320
-and more than 7,000 delayed.
+00:00:38,800 --> 00:00:41,140
+More than 9,000 flights cancelled,
 
 18
-00:00:43,830 --> 00:00:46,040
-Millions of travelers slept in airports,
+00:00:41,390 --> 00:00:43,320
+and more than 7,000 delayed.
 
 19
-00:00:46,040 --> 00:00:47,800
-right before the weekend.
+00:00:43,900 --> 00:00:46,050
+Millions of travelers slept in airports,
 
 20
-00:00:48,370 --> 00:00:49,800
-Why did the story explode?
+00:00:46,290 --> 00:00:47,800
+right before the weekend.
 
 21
-00:00:50,350 --> 00:00:53,120
-Because nobody knew the cause.
+00:00:48,370 --> 00:00:50,760
+Why did the story explode?
 
 22
-00:00:53,120 --> 00:00:54,500
-And within a few hours,
+00:00:50,820 --> 00:00:52,390
+Because nobody knew the cause.
 
 23
-00:00:54,500 --> 00:00:55,890
-social media filled with theories:
+00:00:52,910 --> 00:00:55,890
+And within a few hours, social media filled with theories:
 
 24
-00:00:56,310 --> 00:01:00,220
+00:00:56,310 --> 00:01:00,070
 A cyberattack? A glitch in the new AI tool?
 
 25
-00:01:00,220 --> 00:01:03,300
-A silent war? Homeland Security says:
+00:01:00,240 --> 00:01:01,740
+A silent war?
 
 26
-00:01:03,300 --> 00:01:05,560
-no sign of any attack.
+00:01:02,010 --> 00:01:03,580
+Homeland Security says:
 
 27
-00:01:08,400 --> 00:01:10,540
-And no evidence of AI involvement.
+00:01:03,860 --> 00:01:05,560
+no sign of any attack.
 
 28
-00:01:10,540 --> 00:01:15,250
-17 of the 22 air traffic control centers were affected,
+00:01:05,940 --> 00:01:07,970
+And no evidence of AI involvement.
 
 29
-00:01:15,980 --> 00:01:18,710
-but none went completely dark.
+00:01:08,400 --> 00:01:13,020
+17 of the 22 air traffic control centers were affected,
 
 30
-00:01:18,710 --> 00:01:20,640
-So what's the truth? On Saturday morning,
+00:01:13,280 --> 00:01:15,180
+but none went completely dark.
 
 31
-00:01:20,640 --> 00:01:22,000
-the Transportation Secretary gave the explanation...
+00:01:15,980 --> 00:01:16,610
+So what's the truth?
 
 32
-00:01:22,600 --> 00:01:24,740
-and it was simpler than anyone imagined.
+00:01:17,300 --> 00:01:19,580
+On Saturday morning, the Transportation Secretary gave the explanation...
 
 33
-00:01:25,120 --> 00:01:28,140
-A contractor technician doing routine maintenance at a remote site:
+00:01:19,970 --> 00:01:22,000
+and it was simpler than anyone imagined.
 
 34
+00:01:22,600 --> 00:01:28,140
+A contractor technician doing routine maintenance at a remote site:
+
+35
 00:01:28,660 --> 00:01:30,980
 replacing decades-old copper wires
 
-35
-00:01:31,670 --> 00:01:32,880
-with fiber optics,
-
 36
-00:01:33,210 --> 00:01:35,290
-and installing a new router.
+00:01:31,800 --> 00:01:35,210
+with fiber optics, and installing a new router.
 
 37
 00:01:36,060 --> 00:01:37,350
@@ -159,70 +159,66 @@ A thousand login attempts every four seconds.
 The system linking control towers across the country choked.
 
 41
-00:01:48,920 --> 00:01:52,570
+00:01:48,920 --> 00:01:52,330
 The Secretary said: "When I say we're using old equipment...
 
 42
-00:01:52,570 --> 00:01:55,310
+00:01:52,790 --> 00:01:56,320
 we really are using old equipment." He was asked:
 
 43
-00:01:56,760 --> 00:02:00,440
+00:01:56,760 --> 00:01:59,190
 why is this work done at 3 p.m.,
 
 44
-00:02:01,780 --> 00:02:03,180
+00:01:59,280 --> 00:02:00,430
 and not in the middle of the night?
 
 45
-00:02:03,790 --> 00:02:04,710
-He answered:
+00:02:00,980 --> 00:02:03,180
+He answered: we'll review the timing.
 
 46
-00:02:05,120 --> 00:02:06,640
-we'll review the timing.
-
-47
-00:02:06,640 --> 00:02:07,410
+00:02:03,790 --> 00:02:04,710
 The investigation continues:
 
-48
-00:02:08,130 --> 00:02:09,580
+47
+00:02:05,120 --> 00:02:07,410
 human error... or a faulty device?
 
-49
-00:02:10,080 --> 00:02:11,880
+48
+00:02:08,220 --> 00:02:09,580
 The most powerful country in the world,
 
-50
-00:02:11,880 --> 00:02:13,230
+49
+00:02:10,080 --> 00:02:11,650
 its entire sky stopped...
 
-51
-00:02:13,600 --> 00:02:14,550
+50
+00:02:11,880 --> 00:02:14,550
 because of a copper wire and a router.
 
-52
+51
 00:02:15,120 --> 00:02:16,460
 So is the problem the device...
 
-53
-00:02:16,880 --> 00:02:19,190
+52
+00:02:16,880 --> 00:02:20,380
 or those who wait for disaster before upgrading?
 
-54
+53
 00:02:21,110 --> 00:02:22,470
 Tell me what you think in the comments.
 
-55
+54
 00:02:22,820 --> 00:02:25,020
 Full sources in the video description.
 
-56
-00:02:25,480 --> 00:02:26,870
-Subscribe to the channel,
+55
+00:02:25,480 --> 00:02:27,830
+Subscribe to the channel, and turn on the bell...
 
-57
-00:02:26,870 --> 00:02:30,120
-and turn on the bell... so you don't miss the next trend.
+56
+00:02:27,940 --> 00:02:29,850
+so you don't miss the next trend.
 
