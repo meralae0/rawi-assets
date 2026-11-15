@@ -75,19 +75,30 @@ WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Cap,Tajawal ExtraBold,80,&H0000D8FF,&H00FFFFFF,&H00000000,&H64000000,-1,0,0,0,100,100,0,0,1,8,4,2,60,60,480,1
+Style: Cap,Tajawal ExtraBold,80,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,-1,0,0,0,100,100,0,0,1,8,4,2,60,60,480,-1
+Style: CapY,Tajawal ExtraBold,80,&H0000D8FF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,8,0,2,60,60,480,-1
 Style: Tag,Tajawal ExtraBold,44,&H00FFFFFF,&H00FFFFFF,&H001F1FE0,&H001F1FE0,-1,0,0,0,100,100,0,0,3,14,0,9,0,60,150,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,{ts(0)},{ts(total)},Tag,,0,0,0,,ترند
 """
+from PIL import ImageFont
+FNT=ImageFont.truetype('/root/.fonts/Tajawal-ExtraBold.ttf',53.5,layout_engine=ImageFont.Layout.RAQM)
+def wl(t): return FNT.getlength(t,direction='rtl') if t else 0
+POP='{\\fscx82\\fscy82\\t(0,140,\\fscx100\\fscy100)}'
 for a,b,txt in caps:
-    # dynamic caption: pop-in + word-by-word yellow highlight (karaoke \k, per-word time ~ letters)
+    # layer 0: whole line white; layer 1: same line yellow, clipped to the spoken word.
+    # (\\k sweeps left-to-right and inline colour tags break Arabic word order in libass)
     ws=txt.split(); L=[max(1,len(w)) for w in ws]; speak=max(0.3,(b-a)-0.55)
-    ks=[max(8,int(round(speak*100*l/sum(L)))) for l in L]
-    body=' '.join(f"{{\\k{k}}}{w}" for k,w in zip(ks,ws))
-    ass+=f"Dialogue: 0,{ts(a)},{ts(b)},Cap,,0,0,0,,{{\\fscx82\\fscy82\\t(0,140,\\fscx100\\fscy100)}}{body}\n"
+    full=wl(txt); right=540+full/2
+    ass+=f"Dialogue: 0,{ts(a)},{ts(b)},Cap,,0,0,0,,{POP}{txt}\n"
+    t=a
+    for j,w in enumerate(ws):
+        d=speak*L[j]/sum(L); e=b if j==len(ws)-1 else t+d
+        pre=wl(' '.join(ws[:j])+' ') if j else 0
+        x2=right-pre+10; x1=right-pre-wl(w)-10
+        ass+=f"Dialogue: 1,{ts(t)},{ts(e)},CapY,,0,0,0,,{POP if j==0 else ''}{{\\clip({x1:.0f},1300,{x2:.0f},1500)}}{txt}\n"; t=e
 open('vertical.ass','w',encoding='utf-8').write(ass)
 if os.environ.get('ASS_ONLY'): raise SystemExit
 inputs=[]
