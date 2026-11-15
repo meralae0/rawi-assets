@@ -1,12 +1,13 @@
 import subprocess, os, json
-os.chdir('/home/claude/trend03')
+os.chdir('/home/claude/trend04')
 W,H,FPS=1080,1920,25
 LEAD=0.6; TAIL=2.5; XF=0.5
 cl=json.load(open('clauses.json',encoding='utf-8'))
-audio_dur=149.52
-starts=[(1,0),(2,5),(3,7),(4,12),(5,15),(6,17),(7,22),(8,29),(9,34),(10,38),(11,42),(12,46),(13,56),(14,61)]
-car={'04','06','07','11'}          # vertical versions exist in imgv/<key>v.png
-fit={'03','05','08','10','12'}          # wide scenes: fit on blurred background
+audio_dur=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0','voice.wav']).decode().strip())
+starts=[(1,0),(2,4),(3,7),(4,9),(5,14),(6,18),(7,21),(8,23),(9,26),(10,31),(11,34),(12,39),(13,44),(14,47),(15,55),(16,59)]
+car={'02','06','10'}          # vertical versions exist in imgv/<key>v.png
+fit={'13','14','15'}
+focus={'03':0.32,'04':0.55,'05':0.3,'08':0.3,'11':0.55}          # wide scenes: fit on blurred background
 bounds=[]
 for n,(img,ci) in enumerate(starts):
     t0=cl[ci][0]+LEAD
@@ -29,7 +30,8 @@ for n,(img,t0,t1) in enumerate(bounds):
         cmd=['ffmpeg','-y','-loglevel','error','-loop','1','-i',src,'-filter_complex',fc,'-t',f'{d:.3f}','-r',str(FPS),'-c:v','libx264','-preset','veryfast','-crf','18',out]
     else:
         src=f'img/{key}.png'
-        cmd=['ffmpeg','-y','-loglevel','error','-loop','1','-i',src,'-vf',"scale=-2:3840,crop=2160:3840,"+zp,'-t',f'{d:.3f}','-r',str(FPS),'-c:v','libx264','-preset','veryfast','-crf','18',out]
+        fx=focus.get(key,0.5)
+        cmd=['ffmpeg','-y','-loglevel','error','-loop','1','-i',src,'-vf',f"scale=-2:3840,crop=2160:3840:x='max(0,min(iw-2160,iw*{fx}-1080))',"+zp,'-t',f'{d:.3f}','-r',str(FPS),'-c:v','libx264','-preset','veryfast','-crf','18',out]
     subprocess.run(cmd,check=True); clips.append((out,d)); print(key,round(t0,1),round(t1,1))
 def ts(x): return f"{int(x//3600)}:{int(x%3600//60):02d}:{x%60:05.2f}"
 import re as _re
@@ -39,13 +41,19 @@ caps=[]
 units=[]
 for a,b,txt in cl:
     w=txt.split()
-    if len(w)>7:
-        h=(len(w)+1)//2; m=a+(b-a)*h/len(w)
+    if len(w)>5:
+        import math
+        k=math.ceil(len(w)/5); per=math.ceil(len(w)/k)
+        cuts=list(range(per,len(w),per))
         mp=[(x+y)/2 for x,y in MICRO if a+0.3<x<b-0.3]
-        if mp:
-            best=min(mp,key=lambda t:abs(t-m))
-            if abs(best-m)<0.8: m=best
-        units.append((a,m,' '.join(w[:h]))); units.append((m,b,' '.join(w[h:])))
+        prev=a; prevw=0
+        for c in cuts:
+            m=a+(b-a)*c/len(w)
+            if mp:
+                best=min(mp,key=lambda t:abs(t-m))
+                if abs(best-m)<0.8 and best>prev+0.3: m=best
+            units.append((prev,m,' '.join(w[prevw:c]))); prev=m; prevw=c
+        units.append((prev,b,' '.join(w[prevw:])))
     else: units.append((a,b,txt))
 buf=''; bstart=None; bwords=0
 for i,(a,b,txt) in enumerate(units):
@@ -54,7 +62,7 @@ for i,(a,b,txt) in enumerate(units):
     nxt=units[i+1] if i+1<len(units) else None
     nxt_gap=(nxt[0]-b) if nxt else 9
     nxt_w=len(nxt[2].split()) if nxt else 99
-    if (b-bstart)>=0.9 or i==len(units)-1 or nxt_gap>0.3 or bwords+nxt_w>7:
+    if (b-bstart)>=0.9 or i==len(units)-1 or nxt_gap>0.3 or bwords+nxt_w>5:
         caps.append([bstart+LEAD,b+LEAD+0.1,buf]); buf=''; bstart=None; bwords=0
 for i in range(len(caps)-1):
     caps[i][1]=min(caps[i+1][0],caps[i][1]+0.6)
@@ -91,5 +99,5 @@ for i in range(1,len(clips)):
 tot=off+clips[-1][1]
 fc.append(f"{prev}ass=vertical.ass,fade=t=in:st=0:d=0.6,fade=t=out:st={tot-1.0:.3f}:d=1.0[vout]")
 fc.append(f"[{len(clips)}:a]adelay={int(LEAD*1000)}|{int(LEAD*1000)},apad,atrim=0:{tot:.3f},afade=t=out:st={tot-1.0:.3f}:d=1.0,aformat=channel_layouts=stereo,aresample=48000[aout]")
-subprocess.run(['ffmpeg','-y','-loglevel','error']+inputs+['-i','voice.wav','-filter_complex',';'.join(fc),'-map','[vout]','-map','[aout]','-c:v','libx264','-preset','medium','-crf','20','-c:a','aac','-b:a','192k','-movflags','+faststart','trend-03-vertical.mp4'],check=True)
+subprocess.run(['ffmpeg','-y','-loglevel','error']+inputs+['-i','voice.wav','-filter_complex',';'.join(fc),'-map','[vout]','-map','[aout]','-c:v','libx264','-preset','medium','-crf','20','-c:a','aac','-b:a','192k','-movflags','+faststart','trend-04-vertical.mp4'],check=True)
 print('total',round(tot,2))

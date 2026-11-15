@@ -1,17 +1,17 @@
 import subprocess, os, json
-os.chdir('/home/claude/trend03')
-AUDIO='voice.wav'; OUT='trend-03-groundstop.mp4'
+os.chdir('/home/claude/trend04')
+AUDIO='voice.wav'; OUT='trend-04-ouragans.mp4'
 audio_dur=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',AUDIO]).decode().strip())
 cl=json.load(open('clauses.json',encoding='utf-8'))
 LEAD=0.6; TAIL=2.5; XF=0.6; FPS=25; W,H=1920,1080
-starts=[(1,0),(2,5),(3,7),(4,12),(5,15),(6,17),(7,22),(8,29),(9,34),(10,38),(11,42),(12,46),(13,56),(14,61)]
+starts=[(1,0),(2,4),(3,7),(4,9),(5,14),(6,18),(7,21),(8,23),(9,26),(10,31),(11,34),(12,39),(13,44),(14,47),(15,55),(16,59)]
 bounds=[]
 for n,(img,ci) in enumerate(starts):
     t0=cl[ci][0]+LEAD
     t1=(cl[starts[n+1][1]][0]+LEAD) if n+1<len(starts) else audio_dur+LEAD+TAIL
     bounds.append((img,t0,t1))
 bounds[0]=(bounds[0][0],0.0,bounds[0][2])
-moves=['in','out','panr','in','panl','out','in','panr','out','in','panl','out','in','out']
+moves=(['in','out','panr','in','panl','out','in','panr','out','in','panl','out','in','out']*3)[:len(bounds)]
 clips=[]
 for i,((img,t0,t1),mv) in enumerate(zip(bounds,moves)):
     d_clip=t1-t0+XF; frames=int(round(d_clip*FPS))
