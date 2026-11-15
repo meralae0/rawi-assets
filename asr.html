@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>ASR</title></head><body>
+<pre id="log">loading…</pre>
+<script type="module">
+const q=new URLSearchParams(location.search);
+const f=q.get('f'), model=q.get('m')||'Xenova/whisper-small', lang=q.get('l')||'arabic';
+const log=t=>{document.getElementById('log').textContent+= '\n'+t;};
+window.__status='loading';
+try{
+  const { pipeline, env } = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.1.2');
+  const asr = await pipeline('automatic-speech-recognition', model, {progress_callback:p=>{ if(p.status==='progress') window.__status='dl '+p.file+' '+Math.round(p.progress)+'%'; }});
+  window.__status='decoding';
+  const buf = await (await fetch(f)).arrayBuffer();
+  const ctx = new AudioContext({sampleRate:16000});
+  const audio = (await ctx.decodeAudioData(buf)).getChannelData(0);
+  window.__status='transcribing';
+  const t0=performance.now();
+  const out = await asr(audio,{language:lang,task:'transcribe',return_timestamps:'word',chunk_length_s:30,stride_length_s:5});
+  window.__res=out; window.__status='done '+Math.round((performance.now()-t0)/1000)+'s';
+  log(JSON.stringify(out.chunks.slice(0,20)));
+}catch(e){ window.__status='error '+e; log(String(e)); }
+</script></body></html>
