@@ -1,22 +1,24 @@
-import subprocess, os, json
-os.chdir('/home/claude/trend05')
+import json, subprocess, os, json
+os.chdir('/home/claude/malafat06')
 W,H,FPS=1080,1920,25
 LEAD=0.6; TAIL=2.5; XF=0.5
 cl=json.load(open('clauses.json',encoding='utf-8'))
 audio_dur=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0','voice.wav']).decode().strip())
-starts=[(1,0),(2,2),(3,5),(4,7),(5,10),(6,13),(7,15),(8,19),(9,23),(10,26),(18,30),(11,34),(12,38),(13,40),(14,42),(15,44),(16,47),(1,48),(17,51)]
-car={'02','08','09','13','14','15','18'}
-fit=set()
-focus={'03':0.45,'07':0.43,'11':0.6,'12':0.38,'17':0.52}
+plan=json.load(open('plan.json'))
+END=float(os.environ.get('END','0')) or None
+car=set(); fit=set(); focus={'02a':0.62}
 bounds=[]
-for n,(img,ci) in enumerate(starts):
-    t0=cl[ci][0]+LEAD
-    t1=(cl[starts[n+1][1]][0]+LEAD) if n+1<len(starts) else audio_dur+LEAD+TAIL
+for n,(img,t) in enumerate(plan):
+    t0=t+LEAD
+    t1=(plan[n+1][1]+LEAD) if n+1<len(plan) else audio_dur+LEAD+TAIL
+    if END is not None:
+        if t0>=END: break
+        t1=min(t1,END)
     bounds.append((img,t0,t1))
 bounds[0]=(bounds[0][0],0.0,bounds[0][2])
 clips=[]
 for n,(img,t0,t1) in enumerate(bounds):
-    d=t1-t0+XF; frames=int(round(d*FPS)); key=f'{img:02d}'
+    d=t1-t0+XF; frames=int(round(d*FPS)); key=img
     z = "1+0.10*on/%d"%frames if n%2==0 else "1.10-0.10*on/%d"%frames
     zp=f"zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={FPS},format=yuv420p"
     out=f'vclip{n:02d}.mp4'
@@ -81,7 +83,7 @@ Style: Tag,Tajawal ExtraBold,44,&H00FFFFFF,&H00FFFFFF,&H001F1FE0,&H001F1FE0,-1,0
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,{ts(0)},{ts(total)},Tag,,0,0,0,,ترند
+Dialogue: 0,{ts(0)},{ts(total)},Tag,,0,0,0,,ملفات
 """
 from PIL import ImageFont
 FNT=ImageFont.truetype('/root/.fonts/Tajawal-ExtraBold.ttf',61.5,layout_engine=ImageFont.Layout.RAQM)
@@ -120,5 +122,5 @@ fc.append(f"[{NA+2}:a]asplit={len(offs)}"+"".join(f"[ws{k}]" for k in range(len(
 for k,t in enumerate(offs):
     fc.append(f"[ws{k}]volume=0.22,adelay={int((t+XF/2-0.3)*1000)}|{int((t+XF/2-0.3)*1000)},aresample=48000[w{k}]"); ws.append(f"[w{k}]")
 fc.append(f"[voice][mus]{''.join(ws)}amix=inputs={2+len(ws)}:normalize=0:duration=first,afade=t=out:st={tot-1.0:.3f}:d=1.0,alimiter=limit=0.95[aout]")
-subprocess.run(['ffmpeg','-y','-loglevel','error']+inputs+['-i','voice.wav','-i','music.wav','-i','whoosh.wav','-filter_complex',';'.join(fc),'-map','[vout]','-map','[aout]','-c:v','libx264','-preset','medium','-crf','20','-c:a','aac','-b:a','192k','-movflags','+faststart','trend-05-vertical.mp4'],check=True)
+subprocess.run(['ffmpeg','-y','-loglevel','error']+inputs+['-i','voice.wav','-i','music.wav','-i','whoosh.wav','-filter_complex',';'.join(fc),'-map','[vout]','-map','[aout]','-c:v','libx264','-preset','medium','-crf','20','-c:a','aac','-b:a','192k','-movflags','+faststart','malafat-06-vertical.mp4'],check=True)
 print('total',round(tot,2))
