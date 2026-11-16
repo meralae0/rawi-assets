@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>ASRB</title></head><body>
+<pre id="out">loading…</pre>
+<script type="module">
+// Batch: ?b=<base url>&n=<count>  -> transcribes base+'c0.wav'..c(n-1).wav, writes "k|t|word;..." lines into #out
+const q=new URLSearchParams(location.search);
+const base=q.get('b'), n=+q.get('n'), start=+(q.get('s')||0), model=q.get('m')||'Xenova/whisper-small';
+const out=document.getElementById('out'); out.textContent=''; window.__done=[];
+try{
+  const { pipeline } = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.1.2');
+  const asr = await pipeline('automatic-speech-recognition', model);
+  const ctx = new AudioContext({sampleRate:16000});
+  for(let k=start;k<n;k++){
+    window.__status='chunk '+k;
+    const buf = await (await fetch(base+'c'+k+'.wav')).arrayBuffer();
+    const audio = (await ctx.decodeAudioData(buf)).getChannelData(0);
+    const r = await asr(audio,{language:'arabic',task:'transcribe',return_timestamps:'word',chunk_length_s:30,stride_length_s:5});
+    const line=k+'#'+r.chunks.map(c=>c.timestamp[0].toFixed(1)+'|'+c.text.trim()).join(';');
+    out.textContent+=line+'\n'; window.__done.push(k);
+  }
+  window.__status='ALLDONE';
+}catch(e){ window.__status='error '+e; out.textContent+='ERR '+e; }
+</script></body></html>
