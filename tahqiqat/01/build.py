@@ -52,7 +52,7 @@ def card(i, big, small, dur=None, kind='impact'):
     sfx.append((a + 0.25, kind))
 def stat(i, txt, off=0.3, dur=3.2):
     a = T(i, off); b = a + dur
-    ev.append(f"Dialogue: 4,{ts(a)},{ts(b)},Stat,,0,0,0,,{{\\an3\\pos(1840,960)\\fad(200,250)\\move(1900,960,1840,960,0,250)}}{txt}")
+    ev.append(f"Dialogue: 4,{ts(a)},{ts(b)},Stat,,0,0,0,,{{\\an3\\pos(1850,1000)\\fad(200,250)\\move(1910,1000,1850,1000,0,250)}}{txt}")
     sfx.append((a, 'stat'))
 card(5, 'ملفّ: هيندنبورغ', 'تحقيقات', kind='boom_short'); sfx.append((T(5, -1.6), 'riser_short'))
 card(31, 'التخريب', 'الفرضيّة الأولى'); card(37, 'الطلاء', 'الفرضيّة الثانية'); card(41, 'شرارة', 'الفرضيّة الثالثة')
@@ -74,7 +74,7 @@ Style: Badge,Tajawal ExtraBold,46,&H00FFFFFF,&H00FFFFFF,&H001A1AC8,&H001A1AC8,1,
 Style: Big,Tajawal ExtraBold,150,&H0000D7FF,&H0000D7FF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,7,4,5,0,0,0,-1
 Style: Small,Tajawal ExtraBold,64,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,4,2,5,0,0,0,-1
 Style: Dim,Tajawal ExtraBold,10,&H70000000,&H70000000,&H70000000,&H70000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,-1
-Style: Stat,Tajawal ExtraBold,66,&H00FFFFFF,&H00FFFFFF,&H00000000,&H50101010,1,0,0,0,100,100,0,0,3,18,0,3,0,0,0,-1
+Style: Stat,Tajawal ExtraBold,108,&H00FFFFFF,&H00FFFFFF,&H00000000,&H50101010,1,0,0,0,100,100,0,0,3,18,0,3,0,0,0,-1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
