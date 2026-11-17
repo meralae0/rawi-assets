@@ -127,7 +127,10 @@ def sfx(kind, seed=0):
 
 LIB = '/home/claude/rawi-assets/sfx/'
 MAP = {'paper': 'page_flip', 'flip': 'page_turn', 'stamp': 'stamp', 'whoosh': 'whoosh_quick', 'tick': 'typewriter_key',
-       'shutter': 'shutter', 'impact': 'impact_thud', 'boom': 'boom_short', 'glitch': 'glitch', 'stat': 'envelope_slide'}
+       'shutter': 'shutter', 'impact': 'impact_thud', 'boom': 'boom_short', 'glitch': 'glitch', 'stat': 'envelope_slide',
+       'chapter': 'reverse_swell'}
+# Sounds whose peak must land ON the event (swells): shift start earlier by the peak time.
+PEAK = {'chapter': 2.2}
 def lib(kind):
     import wave, os
     name = MAP.get(kind, kind); p = LIB + name + '.wav'
@@ -140,7 +143,7 @@ def sfx_track(events, total, path, gain=0.35):
     for k, (t, kind) in enumerate(events):
         s = lib(kind)
         if s is None: continue
-        i = int(t * SR)
+        i = int(max(0, t - PEAK.get(kind, 0)) * SR)
         if i < len(out): out[i:i + len(s)] += s[:len(out) - i]
     out = np.clip(out * gain, -1, 1)
     st = np.stack([out, out], 1)

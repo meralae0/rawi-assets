@@ -260,5 +260,15 @@
   "license": "CC0 1.0",
   "source": "https://freesound.org/people/MTJohnson/sounds/444431/",
   "use": "apparition des chiffres / données à l'écran (choix d'Alae, 17 nov.)"
+ },
+ {
+  "name": "reverse_swell",
+  "cat": "transition",
+  "dur": 2.5,
+  "title": "Reverse Swell 2.5s",
+  "author": "Qvantor",
+  "license": "CC0 1.0",
+  "source": "https://freesound.org/people/Qvantor/sounds/877966/",
+  "use": "transition entre chapitres / hypothèses (clé 'chapter', pic aligné sur l'apparition de la carte). Remplace impact_thud, jugé agressif et faux par Alae (17 nov.)"
  }
 ]
