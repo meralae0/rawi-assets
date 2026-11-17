@@ -269,6 +269,16 @@
   "author": "Qvantor",
   "license": "CC0 1.0",
   "source": "https://freesound.org/people/Qvantor/sounds/877966/",
-  "use": "transition entre chapitres / hypothèses (clé 'chapter', pic aligné sur l'apparition de la carte). Remplace impact_thud, jugé agressif et faux par Alae (17 nov.)"
+  "use": "montée de cymbale inversée (clé 'swell'), option de transition"
+ },
+ {
+  "name": "page_turn_ms",
+  "cat": "transition",
+  "dur": 0.99,
+  "title": "page turn",
+  "author": "MasterSuite",
+  "license": "CC0 1.0",
+  "source": "https://freesound.org/people/MasterSuite/sounds/667396/",
+  "use": "transition entre chapitres / hypothèses / cartes (clé 'chapter'), choix d'Alae du 17 nov. ; remplace impact_thud"
  }
 ]
