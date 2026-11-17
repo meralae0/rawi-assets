@@ -53,7 +53,7 @@ def card(i, big, small, dur=None, kind='impact'):
 def stat(i, txt, off=0.3, dur=3.2):
     a = T(i, off); b = a + dur
     ev.append(f"Dialogue: 4,{ts(a)},{ts(b)},Stat,,0,0,0,,{{\\an3\\pos(1840,960)\\fad(200,250)\\move(1900,960,1840,960,0,250)}}{txt}")
-    sfx.append((a, 'whoosh_soft'))
+    sfx.append((a, 'stat'))
 card(5, 'ملفّ: هيندنبورغ', 'تحقيقات', kind='boom_short'); sfx.append((T(5, -1.6), 'riser_short'))
 card(31, 'التخريب', 'الفرضيّة الأولى'); card(37, 'الطلاء', 'الفرضيّة الثانية'); card(41, 'شرارة', 'الفرضيّة الثالثة')
 card(48, 'حادث... لا مؤامرة', 'الحكم', dur=4.0, kind='boom_short')

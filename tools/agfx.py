@@ -127,7 +127,7 @@ def sfx(kind, seed=0):
 
 LIB = '/home/claude/rawi-assets/sfx/'
 MAP = {'paper': 'page_flip', 'flip': 'page_turn', 'stamp': 'stamp', 'whoosh': 'whoosh_quick', 'tick': 'typewriter_key',
-       'shutter': 'shutter', 'impact': 'impact_thud', 'boom': 'boom_short', 'glitch': 'glitch'}
+       'shutter': 'shutter', 'impact': 'impact_thud', 'boom': 'boom_short', 'glitch': 'glitch', 'stat': 'envelope_slide'}
 def lib(kind):
     import wave, os
     name = MAP.get(kind, kind); p = LIB + name + '.wav'

@@ -250,5 +250,15 @@
   "author": "FOSSarts",
   "license": "CC0 1.0",
   "source": "https://freesound.org/people/FOSSarts/sounds/740172/"
+ },
+ {
+  "name": "envelope_slide",
+  "cat": "graphic",
+  "dur": 1.18,
+  "title": "Sliding Envelope.wav",
+  "author": "MTJohnson",
+  "license": "CC0 1.0",
+  "source": "https://freesound.org/people/MTJohnson/sounds/444431/",
+  "use": "apparition des chiffres / données à l'écran (choix d'Alae, 17 nov.)"
  }
 ]
