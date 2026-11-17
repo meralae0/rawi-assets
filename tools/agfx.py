@@ -125,10 +125,22 @@ def sfx(kind, seed=0):
         return np.zeros(1)
     return x
 
-def sfx_track(events, total, path, gain=0.55):
+LIB = '/home/claude/rawi-assets/sfx/'
+MAP = {'paper': 'page_flip', 'flip': 'page_turn', 'stamp': 'stamp', 'whoosh': 'whoosh_quick', 'tick': 'typewriter_key',
+       'shutter': 'shutter', 'impact': 'impact_thud', 'boom': 'boom_short', 'glitch': 'glitch'}
+def lib(kind):
+    import wave, os
+    name = MAP.get(kind, kind); p = LIB + name + '.wav'
+    if not os.path.exists(p): return None
+    w = wave.open(p); a = np.frombuffer(w.readframes(w.getnframes()), np.int16).reshape(-1, w.getnchannels()).mean(1) / 32768.0
+    return a
+def sfx_track(events, total, path, gain=0.35):
+    """Mix library sounds (CC0, rawi-assets/sfx) at event times. Synthesized sounds are no longer used (Alae, 17 nov.)."""
     out = np.zeros(int(total * SR) + SR)
     for k, (t, kind) in enumerate(events):
-        s = sfx(kind, k); i = int(t * SR)
+        s = lib(kind)
+        if s is None: continue
+        i = int(t * SR)
         if i < len(out): out[i:i + len(s)] += s[:len(out) - i]
     out = np.clip(out * gain, -1, 1)
     st = np.stack([out, out], 1)
