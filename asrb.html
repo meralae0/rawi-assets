@@ -4,18 +4,19 @@
 // Batch: ?b=<base url>&n=<count>  -> transcribes base+'c0.wav'..c(n-1).wav, writes "k|t|word;..." lines into #out
 const q=new URLSearchParams(location.search);
 const base=q.get('b'), n=+q.get('n'), start=+(q.get('s')||0), model=q.get('m')||'Xenova/whisper-small';
-const out=document.getElementById('out'); out.textContent=''; window.__done=[];
+const out=document.getElementById('out'); const KEY='asrb:'+base; const S=JSON.parse(localStorage.getItem(KEY)||'{}'); out.textContent=Object.keys(S).sort((a,b)=>a-b).map(k=>S[k]).join('\n')+'\n'; window.__done=Object.keys(S).map(Number);
 try{
   const { pipeline } = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.1.2');
   const asr = await pipeline('automatic-speech-recognition', model);
   const ctx = new AudioContext({sampleRate:16000});
   for(let k=start;k<n;k++){
+    if(S[k]) continue;
     window.__status='chunk '+k;
     const buf = await (await fetch(base+'c'+k+'.wav')).arrayBuffer();
     const audio = (await ctx.decodeAudioData(buf)).getChannelData(0);
     const r = await asr(audio,{language:'arabic',task:'transcribe',return_timestamps:'word',chunk_length_s:30,stride_length_s:5});
     const line=k+'#'+r.chunks.map(c=>c.timestamp[0].toFixed(1)+'|'+c.text.trim()).join(';');
-    out.textContent+=line+'\n'; window.__done.push(k);
+    out.textContent+=line+'\n'; window.__done.push(k); S[k]=line; localStorage.setItem(KEY,JSON.stringify(S));
   }
   window.__status='ALLDONE';
 }catch(e){ window.__status='error '+e; out.textContent+='ERR '+e; }
