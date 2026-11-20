@@ -71,7 +71,6 @@ Style: Tag,Tajawal ExtraBold,44,&H00FFFFFF,&H00FFFFFF,&H002828D6,&H002828D6,-1,0
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,{ts(0)},{ts(base)},Tag,,0,0,0,,ترند
-Dialogue: 0,{ts(0)},{ts(base)},Head,,0,0,0,,{HEAD}
 Dialogue: 2,{ts(0)},{ts(base+END)},Bar,,0,0,0,,{{\\pos(0,0)\\clip(1080,0,1080,14)\\t(0,{int((base+END)*1000)},\\clip(0,0,1080,14))\\p1}}m 0 0 l 1080 0 1080 14 0 14{{\\p0}}
 """
 POP = '{\\fscx82\\fscy82\\t(0,140,\\fscx100\\fscy100)}'
