@@ -3,7 +3,7 @@
 <script>
 // Usage: bridge.html?f=trend/02/short.mp4&n=name.mp4  -> fetches the file and posts it to window.opener
 (async()=>{const q=new URLSearchParams(location.search);const f=q.get('f');if(!f)return;const n=q.get('n')||f.split('/').pop();
- const s=document.getElementById('s');try{s.textContent='fetching '+f;const r=await fetch(f);const b=await r.blob();
+ const s=document.getElementById('s');try{s.textContent='fetching '+f;const fs=q.getAll('f');const parts=[];for(const u of fs){const r=await fetch(u);parts.push(await r.blob())}const b=new Blob(parts,{type:parts[0].type||'video/mp4'});
  const file=new File([b],n,{type:b.type||'application/octet-stream'});
  if(window.opener){window.opener.postMessage({__file:file},'*');s.textContent='sent '+b.size+' bytes';}else s.textContent='no opener';
  window.__file=file;}catch(e){s.textContent='error '+e.message}})();
