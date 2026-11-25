@@ -179,11 +179,12 @@ def ov_png(kind, text, name):
         d.text((60 + tw + 25, 990), t, font=f, fill=(230, 230, 230), anchor='rm', direction='rtl')
     im.save(f'ov/{name}.png')
 def pastille():
-    im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-    f = ca(46); t = 'تحقيقات'; tw = f.getlength(t)
-    d.rounded_rectangle([1860 - tw - 50, 40, 1860, 112], 14, fill=R)
-    d.text((1860 - 25, 76), t, font=f, fill=WH, anchor='rm', direction='rtl')
-    f2 = tj(30); d.text((1860, 140), 'Rawi Zone', font=f2, fill=(235, 235, 235), anchor='rm')
+    # Logo officiel Rawi Zone (brand/watermark_video.png) en haut à droite, 85 % d'opacité
+    im = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+    lg = Image.open('/home/claude/dy/brand/watermark_video.png').convert('RGBA')
+    lw = 250; lg = lg.resize((lw, int(lg.size[1] * lw / lg.size[0])), Image.LANCZOS)
+    lg.putalpha(lg.getchannel('A').point(lambda v: v * 85 // 100))
+    im.alpha_composite(lg, (W - lw - 30, 26))
     im.save('ov/pastille.png')
 # ---------------- graphics (frame-rendered) ----------------
 def bgdark():
